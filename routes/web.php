@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AuthenticationController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ForgetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
+Route::get('/forget_password', [ForgetPasswordController::class, 'index'])->name('forget_password');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
